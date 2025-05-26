@@ -53,5 +53,3 @@ console.log(total) //105, en este caso lo ha unido, el número y el texto (numbe
 
 
 
-
-
