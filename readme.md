@@ -731,3 +731,551 @@ default
 // console.log(multi \* i); // --> tabla de multiplicar
 // i++;
 // }
+
+# Falta clase 29/5
+
+TIPOS DE ARRAY
+
+## CLASE 02/06
+
+- Arrays bidimensionales. Array de arrays.
+
+let matriz = [
+[1,2,3],
+[2,5,6], ⇐ la posición 0 es [1,2,3] y la posicion (matriz[0][0] es [1])
+[7,8,9]
+]
+
+console.log(matriz[2][2]); // ⇐ el primer [x] es fila, el segundo [x] es columna.
+
+for (let i = 0; i< matriz.length; i++) {
+console.log(matriz[i])
+for(let j = 0; j< matriz[i].length; j++) { ⇐ Hará un despliegue del contenido de i(filas) y j(columnas)
+console.log(matriz[i][j])
+}
+}
+
+### OBJETOS
+
+Estructura para almacenar coleccioenes de varios daos y entidades más complejas asociadas en pares clave valoe.
+
+const malaga = {
+clima(keys) = "calido"(value);
+habitantes = 591.637;
+
+}
+
+console.log(malaga.clima) //calido
+console.log(malaga.habitantes) //591.637
+
+console.log(Object(palabra reservada).keys(malaga)); // te da toda las keys dentro del objeto
+object.keys <= calima, habitantes
+object.values; <= calido,591.637
+object.entries(hace un array bidimensional??) <= [calido, 591.637]
+
+object keys(malaga).forEach(key = {
+console.log(key, malaga[key])
+})
+
+// let matriz = [
+// [1,2,3],
+// [2,5,6], // ⇐ la posición 0 es [1,2,3] y la posicion (matriz[0][0] es [1])
+// [7,8,9]
+// ]
+
+// console.log(matriz[2][2]); // ⇐ el primer [x] es fila, el segundo [x] es columna.
+
+// for (let i = 0; i< matriz.length; i++) {
+// console.log(matriz[i])
+// for(let j = 0; j< matriz[i].length; j++) {
+// console.log(matriz[i][j])
+// }
+// }
+
+//1 - Crea un objeto llamado persona con las propiedades nombre, edad y ciudad, y muestra sus valores por consola.
+
+const persona = {
+nombre:"Ana",
+edad: 20,
+ciudad: "Barcelona"
+};
+
+console.log(persona.nombre) //Ana
+console.log(persona.edad) //20
+console.log(persona.ciudad) //Barcelona
+
+//2 - Añade una nueva propiedad profesion al objeto persona.
+
+persona.profesion = "Estudiante";
+
+console.log(persona.profesion) //Estudiante
+
+//3 Modificar el valor de la propiedad ciudad.
+
+persona.ciudad = "A Coruña";
+
+console.log(persona.ciudad) //A Coruña
+
+//4 - Elimina la propiedad edad del objeto persona
+
+delete persona.edad;
+
+console.log(persona) //Lo borra
+
+//5 - Crea un objeto vacío llamado película.
+
+pelicula = {}
+
+console.log(persona.pelicula) //Objeto creado -> pelicula: {} <-undefined
+
+//6 - Inyectar propiedad título, año de estreno y director.
+
+pelicula.titulo = "Los Otros";
+pelicula["año de estreno"]= 2001;
+pelicula.director ="Amenábar";
+
+console.log(pelicula) //crea un Objeto con estos values
+
+//7 - Imprime un mensaje con todos los datos del objeto película.
+
+console.log(`El estreno de ${pelicula.titulo} en el año ${pelicula["año de estreno"]} fue un gran éxito 
+para ${pelicula.director}.`); //El estreno de Los Otros en el año 2001 fue un gran éxito para Amenábar.
+
+//8 - Cambiar el título, el director y año de estreno. Añadir nueva propiedad, protagonista.
+
+pelicula.titulo = "El Castillo Ambulante";
+pelicula["año de estreno"]= 2004;
+pelicula.director ="Miyazaki";
+pelicula.protagonista = "Sophie"
+
+console.log(pelicula) //Se han sustituido todos los valores por los nuevos
+
+console.log(`El estreno de ${pelicula.titulo} en el año ${pelicula["año de estreno"]} fue un gran éxito 
+para ${pelicula.director}.`); //El estreno de El Castillo Ambulante en el año 2004 fue un gran éxito para Miyazaki.
+
+//9 - Todas las claves usando el método que muestre todas las keys del objeto.
+
+console.log(Object.keys(pelicula)) //['titulo', 'año de estreno', 'director', 'protagonista']
+
+console.log(Object.values(pelicula)) //['El Castillo Ambulante', 2004, 'Miyazaki', 'Sophie']
+
+let arrayPelicula = Object.entries(pelicula);
+
+for(let i = 0; i < arrayPelicula.length; i++) {
+console.log(arrayPelicula[i].join(": ")) //(2) ['titulo', 'El Castillo Ambulante']*siguiente linea (2) ['año de estreno', 2004]
+} // *y asi hasta poner todos los datos dentro del objeto.Con el join " " le hemos añadido espacios entre,
+// y con eñ ": " se nos muestra ['año de estreno', 2004] + etc
+
+//9.1 Hacer el ejercicio con forEach
+
+// Object.keys(pelicula).forEach(propPeli => {
+// console.log(propPeli, pelicula[propPeli])
+// })
+
+Object.keys(pelicula).forEach(propPeli => {
+console.log(`${propPeli}: ${pelicula[propPeli]}`) //Aquí se mostrará igual que en el ejemplo anterior.
+})
+
+## CLASE 03/06
+
+### REPASO
+
+//1. Crea un objeto llamado libro que tenga las siguientes propiedades: titulo, autor, año publicación y género
+
+let libro = {
+titulo: "La Celestina",
+autor: "Fernando de rojas",
+anno_publicacion: 1499,
+//"año de publicación": 1499, es más correcta la primera forma, la que más vas a ver.
+genero: "Narrativa",
+ISBN: 9788423972821,
+}
+
+console.log(libro);
+
+//2. Usa ambas notaciones para mostrar por consola el título y autor del libro.
+
+console.log(libro.titulo);
+console.log(libro["autor"]) //para llamar una key dentro de un objeto
+
+//3. Modifica
+
+libro.genero = "Drama",
+libro.paginas = 300.
+
+console.log(libro)
+
+//4. Elimina
+
+delete libro.genero;
+
+console.log(libro)
+
+//5. Obten todos las claves de un objeto.
+
+console.log(Object.keys(libro))
+
+//5. Obten todos los valores de un objeto.
+
+console.log(Object.values(libro))
+
+//6. Más métodos para recorrer un objeto.
+
+console.log(Object.entries(libro)); //genera un array bidimensional. Se crea un array con propiedades dentro.
+
+//7. Otro método para sacar todos los valores y propiedades de un objeto.
+
+for(let propiedad in libro) {
+console.log(`${propiedad}:${libro[propiedad]}`)
+};
+
+//6. Anidación de objetos.
+
+const usuario = {
+nombre: "Ana",
+direccion: {
+ciudad: "Madrid",
+calle: "Calle Cadiz"
+}
+}
+
+console.log(usuario.direccion.ciudad)
+
+usuario.direccion.numero = 30;
+
+console.log(usuario.direccion)
+
+delete usuario.direccion.numero;
+
+console.log(usuario.direccion)
+
+// lo ideal es hacer como mucho dos o tres anidaciones, cuanto más allá, más caótico y dificil de leer será el código.
+
+## DESUSTRUCTURACIÓN ARRAYS.
+
+const numeros = [1, 2, 3];
+// const a = numeros[0]; //1
+// const b = numeros[2]; //3
+
+//desustructurandolo, sería asi.
+
+const [a, b, c] = [1, 2, 3]; //si quisier saltarme un valor, por ejemplo b sería así const [a, , c] = [1, 2, 3]; no declararíamos el console.log, pues no existe
+console.log(a);
+console.log(b);
+console.log(c);
+
+/_1. Dado el array ["rojo", "verde","azul"] usa desustructuración para: - Crear 3 variables primero, segundo y tercero. - Imprime los 3 valores _/
+
+const colores = ["rojo", "verde","azul"]
+const [primero, segundo, tercero] = colores; //es lo mismo que poner todo el array, porque estamos respetando el orden.
+
+console.log(primero);
+console.log(segundo);
+console.log(tercero);
+
+// Si hubiesemos añadido más valors dentro del array pero seguimos con la cuenta hasta tercero, aquellos que no entren serán omitidos.
+// Para que no se pierdan el resto de colores podemos hacer:
+const color = ["rojo", "verde","azul", "amarillo", "rosa"]
+const [first, second, third, ...rest] = color;
+
+console.log(first);
+console.log(second);
+console.log(third);  
+console.log(...rest); //Esta variable -tiene un nombre que no recuerdo- puede tener cualquier nombre, se quedaría con los sobrantes.
+
+//En el caso de que se declaren más variables en exceso, estas vacías serán "undefined", si queremos que nos aparezca algo, cuando la declaramos
+// pondríamos (siguiento el ejemplo anterior) const [first, second, third, fourth = "cyan"; fith = null].
+// si existe un contendio para esa variable tendrá prioridad a la que hemos declarado. Si queremos dejarlo vacío, es mejor declararlo como null
+
+// Teniendo en cuenta esta variable const datos = [100], desestructura el primer elemento y asigna valores por defecto para
+// el segundo y tercero: 100, 0 y "unknown".
+
+const datos = [100];
+let [x, y = 0, z = 'unknown'] = datos;
+
+console.log()
+console.log(y)
+console.log(z)
+
+                        La declaración const crea una referencia inmutable a un valor. Eso no
+                        signific a que el valor se mantenga inmutable, solo que la variable
+                        que lo identifica no puede ser reasignada. Por ejemplo, en caso de que
+                        el contenido sea un objeto, eso signifca que el contenido del objeto
+                        (por ejemplo, sus propiedades) puede ser alterado. Hay que entender, que la
+                        declaración const como "crea una variable con una identidad constante" no
+                        "una variable con un valor que se mantiene constante" o "crea información(?)
+                        inmutable" no "valores inmutables"
+
+## DESUSTRUCTURACIÓN OBJETOS
+
+const perro = {
+nombre : "Mambo",
+edad: 11,
+chucheFavorita: "Pan",
+raza: "Bull Terrie",
+capa: "corto",
+}
+
+const{ nombre, chucheFavorita } = perro;
+console.log(nombre);
+console.log(chucheFavorita);
+
+//También podría ser const {nombre: nombrePerrete, chucheFavorita: varChuchePerro} = perro; (son otro forma de llamarlo)
+
+//Con el objeto.
+
+const usuario = {
+id: 123,
+name: "Paco",
+email: "paco@paco.paco"
+}
+
+// Extrae nombre y el mail
+// Extrae el id y renombrarlo a usuarioID
+
+const {name, email, id: userID} = usuario;
+console.log(name, email, userID)
+
+//Ejercicios.
+
+// Teneindo en cuenta el siguiente array
+const coordenadas = [13, 20];
+
+// Desestructura los valores en variables x e y. Imprime ambos valores.
+
+const [x, y] = coordenadas;
+console.log(x);
+console.log(y);
+
+// Pasa los valores de una variable a otra, con una desustructuración
+
+let a = 12;
+let b = 56;
+
+[a, b] = [b, a]
+console.log(a)
+console.log(b)
+
+// Dado este objeto
+
+const mascota = {
+nombre: "Timmy",
+especie: "perro",
+}
+
+//Desetructura para obtener el nombre y la especie. Imprime "La mascota es [especie] que se llama [nombre]":
+
+const {nombre, especie} = mascota;
+console.log(`la mascota es un ${especie} y se llama ${nombre}`);
+
+// Dado este objeto
+
+const vehiculo = {
+tipo: "coche",
+}
+//Desetructura el tipo y color, usando gris como valor por defecto para color.
+
+const {tipo, color = "gris"} = vehiculo;
+console.log(tipo);
+console.log(color); //el objeto no muta, hay que señalarlo por separado.
+
+// Dado este objeto:
+
+const pelicula = {
+titulo: "Inception",
+director: "Christopher Nolan"
+}
+
+//Desetructura titulo y director, pero renombralos a nombrePelicula y autor
+
+const {titulo: nombrePelicula, director: autor} = pelicula //ACORDARSE DE LOS ":" PARA RENOMBRAR
+console.log(pelicula)
+
+const dias = ["lunes", "martes", "miercoles", "jueves"];
+const [primero, , tercero] = dias; //tengo que llamarlos, si uso días será todo el array
+console.log(primero);
+console.log(tercero);
+
+// Teniendo en cuenta este objeto, imprimero el autor (author) y de nacionalidad (nationality).
+
+const libro = {
+title: "1984",  
+ author: {
+name: "George Orwell",
+nationality: "Británica",
+}
+}
+
+const {
+author: { author, //IMPORTANTE: En este caso usamos los : y las {} para llamar el objeto anidado
+nationality,
+genero = "ciencia ficción"
+}
+} = libro;
+
+console.log(`El autor ${author} era de nacionalidad ${nationality}`) //El autor undefined era de nacionalidad Británica
+console.log(libro.author) //esto era solo porque quería ver como lo tenía que declarar. El género no sae porque no es original al objeto
+
+// Desestructura este nuevo objeto para obtener un segundo ingrediente es una variable dulce. Imprime el elemento dulce.
+
+const receta = {
+nombre: "Tarta de manzana",
+ingredientes: ["manzana", "azúcar", "harina"]
+}
+
+const {
+ingredientes: [ ,dulce]
+} = receta
+
+//let dulce = receta.ingredientes[1];
+console.log(`la tarta lleva ${dulce}`) //la tarta lleva azúcar
+
+// ## DESESTRUCTURACIÓN EN BUCLE
+
+const personas = [
+{
+nombre: "Paco",
+edad: 33
+},
+{
+nombre: "María",
+edad: 20
+},
+{
+nombre: "Pablo",
+edad: 25
+}
+]
+
+for (const {nombre, edad} of personas) { //for of es un bucle para arrays, se usa bastanta para desustructuración
+console.log(`${nombre} tiene ${edad}`) //Paco tiene 33
+} //María tiene 20
+//Pablo tiene 25
+
+// const [nombre2, edad] = personas; //como realmente solo está llamando a dos elementos solo se ejecuta al llamado, por eso nos hace falta el bucle for
+// console.log(nombre2); // {nombre: 'Paco', edad: 33}
+// console.log(edad); //{nombre: 'María', edad: 20}
+
+Otro ejemplo de desutructuración
+
+const productos = [
+{ nombre: "teclado", precio: 35},
+{ nombre: "ratón", precio: 40},
+{ nombre: "monitor", precio: 105},
+]
+
+for (const{nombre, precio} of productos){
+console.log(nombre, precio);
+}
+
+## TIPOS DE DATOS (ADD)
+
+### VALOR Y REFERENCIA
+
+x = 5;
+y = x; //y = 5
+
+x = "adios"; //y = 5, porque mantiene el valor previo, si fuese en una línea más abajo si lo cambiaría.
+
+### ALMACENADOS POR REFERENCIAS
+
+const casa = {
+precio: "caro",
+metros: 100\*2,
+ubicacion: "málaga"
+};
+
+const apartamento = casa; //le asingo una referencia, la referencia SIEMPRE se verá afectada por los cambios del objeto
+
+console.log(apartamento); //{precio: 'caro', metros: 200, ubicacion: 'málaga'}
+console.log(casa); //{precio: 'caro', metros: 200, ubicacion: 'málaga'}
+
+casa.precio = "mas caro aun"
+
+console.log(apartamento); //{precio: 'mas caro aun', metros: 200, ubicacion: 'málaga'}. Cambia por ser dependiente
+console.log(casa); //{precio: 'mas caro aun', metros: 200, ubicacion: 'málaga'}
+
+apartamento.piso = "primero" //comparten datos, así que se añade en ambos
+
+console.log(apartamento); //{precio: 'mas caro aun', metros: 200, ubicacion: 'málaga', piso: 'primero'}
+console.log(casa); //{precio: 'mas caro aun', metros: 200, ubicacion: 'málaga', piso: 'primero'}
+
+### Copia profunda (deep copy), ahora mismo lo que estamos haciendo es una copia supercial (shallow copy)
+
+const deepCopy = JSON.parse(JSON.stringify(casa)); //hemos puesto deepCopy solo para identificarlo en este caso. JSON.stringfy lo convierte en string
+deepCopy.precio = "barato" // y parse lo convierte en objeto.
+console.log(deepCopy);
+
+### Casting por conversión de tipo
+
+### Coerción
+
+#### 04/06
+
+## FUNCIONES
+
+Bloque de codigo que se puede reutilizar y hace una acción específica. Puedo invocarla/llamarla, cuantas veces quiera.
+
+## DECLARACIÓN DE FUNCIONES
+
+También llamada expresión de funciones, primero se usa la palabra reservada function, luego un nombre (siempremepezará con un verbo) y luego una lista de parámetros entre parentesis (separado por coma si hay más de uno) y luego el código de la función entrellaves, "cuerpo de la función".
+
+function saludar() /_el parentesis puede ir vacío_/{
+console.log("HOLA!")
+}
+
+saludar(); //esto sería la invocación de una función nombrada, sino en este caso no se ejecuta el console.log.
+saludar();
+saludar();
+saludar();
+saludar(); //puedo llamarla tantas veces quiera
+
+function saludar(nombre){ //parametro como variable que definen la declaración de la función, marcadores para los argumentos
+console.log(`Hola ${nombre} buenos días!`)
+}
+
+saludar("Ana") //argumentos a usar cuando llamamos a la función. Son valores reales.
+saludar("Pedro")
+// saludar(prompt("Indica tu nombre")) //podemos usar prompt
+
+//podemos crear también variables con let o const
+
+function suma(num1, num2) {
+let resultado = num1 + num2
+console.log(`El resultado sería ${resultado}`)
+}
+
+suma(4, 10) // El resultado sería 14
+suma(18, 24) // El resultado sería 42
+suma(53) //NaN porque se suma el argumento con un undefine por no haber definido el valor del num2
+
+//Variable Locar aqauellas que se declaran dentro de una función (el ejmplo de los apuntes)
+//Varables Externas, aquellas que se pueden usar en cualquier parte del código.
+
+//Variables locales y globales
+
+let global ="Soy la var global";
+
+function example() {
+let local = "Soy un var local";
+global = "eeeoo"; //podemos cambiar el interior de la variable que está fuera
+console.log(global);
+console.log(local)
+}
+
+example();
+example();
+example();
+example();
+
+console.log(global);
+console.log(local); //no se puede llamar
+
+## return devolver un valor de una operación o calculo
+
+function calculo(a, b) {
+return a \* b;
+}
+
+let resultado = calculo(2, 2)
+console.log(resultado);
